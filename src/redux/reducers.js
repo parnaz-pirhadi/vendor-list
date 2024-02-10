@@ -12,12 +12,12 @@ const vendorsSlice = createSlice({
     extraReducers: builder => {
         builder
             .addCase(fetchVendorsData.pending, (state, action) => {
-                state.loading = false;
+                state.loading = true;
                 state.data = null;
             })
             .addCase(fetchVendorsData.fulfilled, (state, action) => {
                 state.loading = false;
-                state.data = action.payload;
+                state.data = action.payload.data.finalResult;
             })
             .addCase(fetchVendorsData.rejected, (state, action) => {
                 state.loading = false;

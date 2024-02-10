@@ -17,6 +17,7 @@
     "react-router-dom": "^6.21.3",
     "react-toastify": "^10.0.4",
     "react-virtualized": "^9.22.5",
+    "react-virtuoso": "^4.6.3",
     "styled-components": "^6.1.8"
   },
   "devDependencies": {
