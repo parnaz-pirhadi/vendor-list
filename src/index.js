@@ -5,6 +5,9 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 import App from './App';
+import "react-toastify/dist/ReactToastify.css";
+import ApiInterceptor from "../src/redux/apiInterceptor"
+ApiInterceptor.setupInterceptors(store);
 
 root.render(
         <Provider store={store}>

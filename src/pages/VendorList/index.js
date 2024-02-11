@@ -3,24 +3,18 @@ import {useEffect, useState} from "react";
 import { Virtuoso } from 'react-virtuoso';
 import {fetchVendorsData} from "../../redux/action";
 import SkeletonLoading from "../../components/SkeletonLoading";
+import Card from "./Card";
 
-function VendorList(){
+const VendorList=()=>{
     const dispatch=useDispatch();
     const vendors=useSelector(state=>state.vendors)
 
     const [page, setPage] = useState(0);
     const [list, setList] = useState([]);
 
-
-    const fetchMoreData = () => {
-        setPage(prevState=>prevState+1)
-
-    };
-
     useEffect(()=>{
         dispatch(fetchVendorsData(page))
-    },[page])
-
+    },[page]);
 
     useEffect(()=>{
         if(vendors && vendors.data?.length>0){
@@ -29,17 +23,19 @@ function VendorList(){
 
     },[vendors])
 
+    const fetchMoreData = () => {
+            setPage(prevState => prevState + 1)
+    };
+
     return (
-                <Virtuoso
-                    data={list}
-                    style={{ height: "100%"}}
-                    endReached={fetchMoreData}
-                    endReachedThreshold={20}
-                    itemContent={(index, item) => (
-                        <div style={{ padding: '10px', borderBottom: '1px solid #ccc',height:"300px"}}>{item.type}</div>
-                    )}
-                    components={{ Footer : vendors.loading ? SkeletonLoading:null }}
-                />
+            <Virtuoso
+                data={list}
+                endReached={fetchMoreData}
+                endreachedthreshold={20}
+                itemContent={(index, vendor) => <Card vendor={vendor.data}/>}
+                components={{ Footer : vendors.loading ? SkeletonLoading:null }}
+            />
+
     );
 }
 

@@ -1,15 +1,14 @@
-import React from "react";
 import Router from "./components/Router";
 import {ToastContainer, Zoom} from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
-import "./App.css"
+import "./styles/variables.scss"
+import "./styles/App.scss"
 
 
 function App() {
     return (
         <>
             <ToastContainer
-                position="bottom-center"
+                position="top-center"
                 autoClose={5000}
                 hideProgressBar={false}
                 newestOnTop={false}
