@@ -17,11 +17,11 @@ const vendorsSlice = createSlice({
             })
             .addCase(fetchVendorsData.fulfilled, (state, action) => {
                 state.loading = false;
-                state.data = action.payload.data.finalResult;
+                state.data = action.payload.data.finalResult.filter(vendor=>vendor.type==="VENDOR");
             })
             .addCase(fetchVendorsData.rejected, (state, action) => {
                 state.loading = false;
-               state.error = action.payload;
+                state.error = 'An error occurred';
             });
     },
 });
