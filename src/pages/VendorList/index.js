@@ -1,19 +1,19 @@
-import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
+import {useSelector} from "react-redux";
+import useFetchList from "../../components/customHook/useFetchList";
 import { Virtuoso } from 'react-virtuoso';
-import {fetchVendorsData} from "../../redux/action";
 import SkeletonLoading from "../../components/SkeletonLoading";
 import Card from "./Card";
 
 const VendorList=()=>{
-    const dispatch=useDispatch();
-    const vendors=useSelector(state=>state.vendors)
-
-    const [page, setPage] = useState(0);
+   const [page, setPage] = useState(0);
     const [list, setList] = useState([]);
 
+    const vendors=useSelector(state=>state.vendors)
+    const {fetchList} = useFetchList();
+
     useEffect(()=>{
-        dispatch(fetchVendorsData(page))
+        fetchList(page)
     },[page]);
 
     useEffect(()=>{
