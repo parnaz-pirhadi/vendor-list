@@ -14,8 +14,8 @@ const Delivery=()=>{
                 <span>پیک اسنپ فود</span> :
                 <span>پیک رستوران</span>
 
-            } :
-            <span> {numberWithCommas(vendor.deliveryFee)} تومان</span>
+            }
+            <span> : {numberWithCommas(vendor.deliveryFee)} تومان</span>
         </DeliveryWrapper>
     )
 }

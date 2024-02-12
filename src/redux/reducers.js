@@ -11,7 +11,7 @@ const vendorsSlice = createSlice({
     reducers: {},
     extraReducers: builder => {
         builder
-            .addCase(fetchVendorsData.pending, (state, action) => {
+            .addCase(fetchVendorsData.pending, (state) => {
                 state.loading = true;
                 state.data = null;
             })
@@ -19,7 +19,7 @@ const vendorsSlice = createSlice({
                 state.loading = false;
                 state.data = action.payload.data.finalResult.filter(vendor=>vendor.type==="VENDOR");
             })
-            .addCase(fetchVendorsData.rejected, (state, action) => {
+            .addCase(fetchVendorsData.rejected, (state) => {
                 state.loading = false;
                 state.error = 'An error occurred';
             });

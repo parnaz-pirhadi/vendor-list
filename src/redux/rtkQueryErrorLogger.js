@@ -1,7 +1,7 @@
 import { isRejectedWithValue } from '@reduxjs/toolkit';
 import { toast } from "react-toastify";
 
-const rtkQueryErrorLogger = (api) => (next) => (action) => {
+const rtkQueryErrorLogger = (next) => (action) => {
     if (isRejectedWithValue(action)) {
         toast(action.payload);
     }
