@@ -4,6 +4,7 @@
   "description": "This project Bootstrapped manually",
   "main": "webpack.config.js",
   "scripts": {
+    "test": "jest",
     "start": "webpack-dev-server --mode=development --open http://localhost:3000/vendor-list --hot"
   },
   "author": "",
@@ -31,6 +32,9 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.6.0",
     "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "redux-mock-store": "^1.5.4",
+    "redux-thunk": "^3.1.0",
     "sass-loader": "^14.1.0",
     "style-loader": "^3.3.4",
     "webpack": "^5.89.0",
