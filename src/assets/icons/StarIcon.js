@@ -1,7 +1,4 @@
-import React from 'react';
-
-
-function StarIcon(props) {
+function StarIcon() {
     return (
         <svg
             style={{

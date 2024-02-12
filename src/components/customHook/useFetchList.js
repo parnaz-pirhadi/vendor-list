@@ -10,6 +10,6 @@ function useFetchList() {
     };
 
     return {fetchList};
-};
+}
 
 export default useFetchList;
